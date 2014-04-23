@@ -6,7 +6,7 @@ reset to a large number e.g. [expires] => 1398295382
 
 Reproduce
 ---------
-1. Copy config/autoload/local.php.dist to config.autoload.local.php 
+1. Copy config/autoload/local.php.dist to config/autoload/local.php 
    and edit with OAuth2 key and secret for a valid connection.
 
 2. Download and run Composer (https://getcomposer.org/)
