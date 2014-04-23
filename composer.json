@@ -1,0 +1,20 @@
+{ 
+    "name": "box/sync",
+    "description": "rsync-like box.com api app",
+    "type": "application",
+    "license": "proprietary",
+    "config": {
+        "process-timeout": 1200
+    },
+    "keywords": [
+        "box.com",
+        "sync"
+    ],
+    "homepage": "http://www.soliantconsulting.org/",
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4",
+        "zendframework/zendframework": "~2.3",
+	"league/oauth2-client": "dev-master"
+    }
+}

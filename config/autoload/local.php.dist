@@ -1,0 +1,13 @@
+<?php
+
+return array(
+    'box_sync' => array(
+        'delay' => 1,
+    ),
+
+    'oauth2' => array(
+        'clientId' => '',
+        'clientSecret' => '',
+        'redirectUri' => 'http://localhost:8081/callback',
+    ),
+);
