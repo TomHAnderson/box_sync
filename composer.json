@@ -1,11 +1,7 @@
 { 
-    "name": "box/sync",
-    "description": "rsync-like box.com api app",
+    "name": "box/box-long-oauth2-expire",
+    "description": "Long OAuth2 Expire bug",
     "type": "application",
-    "license": "proprietary",
-    "config": {
-        "process-timeout": 1200
-    },
     "keywords": [
         "box.com",
         "sync"
