@@ -8,9 +8,15 @@
     ],
     "homepage": "http://www.soliantconsulting.org/",
     "minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url" : "git@github.com:TomHAnderson/oauth2-client"
+        }
+    ],
     "require": {
         "php": ">=5.4",
         "zendframework/zendframework": "~2.3",
-	"league/oauth2-client": "dev-master"
+        "box/oauth2-client": "dev-master"
     }
 }

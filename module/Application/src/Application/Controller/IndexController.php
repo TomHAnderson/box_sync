@@ -18,12 +18,12 @@ class IndexController extends AbstractActionController
             . '/callback';
 
         if ($expectedUri != $config['oauth2']['redirectUri']) {
-            die('OAuth2 redirect route ' . $config['oauth2']['redirectUri'] .
-                ' not valid for ' . $expectedUri);
+//            die('OAuth2 redirect route ' . $config['oauth2']['redirectUri'] .
+//               ' not valid for ' . $expectedUri);
         }
 
         $provider = new Box($config['oauth2']);
-        $provider->authorize();
+        $provider->authorize(array('state' => md5(rand())));
     }
 
     public function callbackAction()
@@ -32,6 +32,7 @@ class IndexController extends AbstractActionController
             $config = $this->getServiceLocator()->get('Config');
             $provider = new Box($config['oauth2']);
             $token = $provider->getAccessToken('authorization_code', array('code' => $_GET['code']));
+	    $user = $provider->getUserDetails($token);
         } catch (\Exception $e) {
             die('Unhandled Exception: ' . $e->getMessage());
         }

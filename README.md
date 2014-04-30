@@ -4,6 +4,8 @@ Box.com Long OAuth2 Expire
 This application is an example of when using the refresh_token the expires is
 reset to a large number e.g. [expires] => 1398295382
 
+The real problem here is box.com returns 'expires' instead of 'expire_at'
+
 Reproduce
 ---------
 1. Copy config/autoload/local.php.dist to config/autoload/local.php 

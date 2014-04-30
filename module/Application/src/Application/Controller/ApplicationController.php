@@ -14,7 +14,7 @@ use Zend\Console\Adapter\AdapterInterface as Console;
 use Zend\Console\Prompt;
 
 use Box\OAuth2\Client\Provider\Box;
-use Box\OAuth2\Client\Grant\RefreshToken;
+use League\OAuth2\Client\Grant\RefreshToken;
 use Zend\Http\Request;
 use Zend\Http\Client;
 
@@ -108,6 +108,7 @@ print_r($token); die();
                 default:
                     die('Error ' . $response->getStatusCode() . ' was unexpected and not handled');
             }
+
 
             die("\nAccess Token is valid\n");
 
