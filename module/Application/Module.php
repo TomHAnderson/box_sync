@@ -11,6 +11,7 @@ class Module
 {
     public function init(ModuleManager $moduleManager)
     {
+        session_start();
     }
 
     public function getConfig()

@@ -4,6 +4,7 @@ namespace Application\Controller;
 
 use Box\OAuth2\Client\Provider\Box;
 use Zend\Mvc\Controller\AbstractActionController;
+use Application\Service\Box as BoxService;
 
 class IndexController extends AbstractActionController
 {
@@ -32,11 +33,25 @@ class IndexController extends AbstractActionController
             $config = $this->getServiceLocator()->get('Config');
             $provider = new Box($config['oauth2']);
             $token = $provider->getAccessToken('authorization_code', array('code' => $_GET['code']));
-	    $user = $provider->getUserDetails($token);
+        $user = $provider->getUserDetails($token);
         } catch (\Exception $e) {
             die('Unhandled Exception: ' . $e->getMessage());
         }
 
-        die("php public/index.php sync " . $token->accessToken . " " . $token->refreshToken);
+        $_SESSION['access_token'] = $token->accessToken;
+
+        $this->plugin('redirect')->toRoute('sync');
+    }
+
+    public function syncAction()
+    {
+        $boxService = new BoxService();
+
+        $boxService->syncDown(
+            __DIR__ . '/../../../../../data/test1',
+            '/test1'
+        );
+
+        die('syncDown complete');
     }
 }
